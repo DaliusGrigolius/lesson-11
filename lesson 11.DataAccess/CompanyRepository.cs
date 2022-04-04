@@ -15,9 +15,9 @@ namespace lesson_11.DataAccess
             Country country2 = new Country("EN", "Anglija");
             Country country3 = new Country("PL", "Lenkija");
 
-            companys.Add(new Company("company1", country1));
-            companys.Add(new Company("company1", country2));
-            companys.Add(new Company("company1", country3));
+            companys.Add(new Company("Profitable", country1));
+            companys.Add(new Company("Not Profitable", country2));
+            companys.Add(new Company("Almost Profitable", country3));
         }
 
         public List<Company> Retrieve()

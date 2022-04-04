@@ -5,23 +5,23 @@ namespace lesson_11.DataAccess
 {
     public class AircraftRepository
     {
-        private List<AirCraft> airCrafts { get; }
+        private List<AirCraft> airCrafts { get; }       
 
         public AircraftRepository()
         {
             airCrafts = new List<AirCraft>();
 
-            AircraftModel aircraftModel1 = new AircraftModel("1", "description1");
-            AircraftModel aircraftModel2 = new AircraftModel("2", "description2");
-            AircraftModel aircraftModel3 = new AircraftModel("3", "description3");
+            AircraftModel aircraftModel1 = new AircraftModel("T1-5505", "Very fast aircraft");
+            AircraftModel aircraftModel2 = new AircraftModel("T2-6606", "Very slow aircraft");
+            AircraftModel aircraftModel3 = new AircraftModel("T3-7707", "Very special aircraft");
 
             Country country1 = new Country("LT", "Lietuva");
             Country country2 = new Country("EN", "Anglija");
             Country country3 = new Country("PL", "Lenkija");
 
-            Company company1 = new Company("company1", country1);
-            Company company2 = new Company("company2", country2);
-            Company company3 = new Company("company3", country3);
+            Company company1 = new Company("Profitable", country1);
+            Company company2 = new Company("Not Profitable", country2);
+            Company company3 = new Company("Almost Profitable", country3);
 
             airCrafts.Add(new AirCraft(1, aircraftModel1, company1));
             airCrafts.Add(new AirCraft(2, aircraftModel2, company2));
@@ -36,6 +36,26 @@ namespace lesson_11.DataAccess
         public AirCraft Retrieve(int number)
         {
             return airCrafts[number];
+        }
+
+        public List<int> RetrieveAircraftsFromEsCountries()
+        {
+            CountryRepository countryRepository = new CountryRepository();
+            List<Country> esCountriesList = countryRepository.esCountries;
+
+            List<int> filteredEsCountriesAircraftsIds = new List<int>();
+
+            for (int i = 0; i < esCountriesList.Count; i++)
+            {
+                for (int j = 0; j < airCrafts.Count; j++)
+                {
+                    if (esCountriesList[i].Code == airCrafts[j].OwnerCompany.Country.Code)
+                    {
+                        filteredEsCountriesAircraftsIds.Add(airCrafts[j].TailNumber);
+                    }
+                }
+            }
+            return filteredEsCountriesAircraftsIds;
         }
     }
 }
