@@ -4,15 +4,15 @@ namespace lesson_11.Business
 {
     public class AirCraft
     {
-        public int AirCraftTailNumber { get; }
-        public Model AirCraftModel { get; }
-        public Company AirCraftOwnerCompany { get; }
+        public int TailNumber { get; }
+        public Model Model { get; }
+        public Company OwnerCompany { get; }
 
-        public AirCraft(int airCraftTailNumber, Model airCraftModel, Company airCraftownerCompany)
+        public AirCraft(int tailNumber, Model model, Company ownerCompany)
         {
-            AirCraftTailNumber = airCraftTailNumber;
-            AirCraftModel = airCraftModel;
-            AirCraftOwnerCompany = airCraftownerCompany;
+            TailNumber = tailNumber;
+            Model = model;
+            OwnerCompany = ownerCompany;
         }
     }
 }

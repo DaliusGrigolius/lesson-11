@@ -8,13 +8,13 @@ namespace lesson_11.Business
 {
     public class Model
     {
-        public string ModelNumber { get; }
-        public string ModelDescription { get; }
+        public string Number { get; }
+        public string Description { get; }
 
-        public Model(string modelNumber, string modelDescription)
+        public Model(string number, string description)
         {
-            ModelNumber = modelNumber;
-            ModelDescription = modelDescription;
+            Number = number;
+            Description = description;
         }
     }
 }

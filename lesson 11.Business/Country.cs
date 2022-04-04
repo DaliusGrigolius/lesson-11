@@ -8,13 +8,13 @@ namespace lesson_11.Business
 {
     public class Country
     {
-        public int CountryID { get; }
-        public string CountryName { get; }
+        public string Code { get; }
+        public string Name { get; }
 
-        public Country(int countryID, string countryName)
+        public Country(string code, string name)
         {
-            CountryID = countryID;
-            CountryName = countryName;
+            Code = code;
+            Name = name;
         }
     }
 }

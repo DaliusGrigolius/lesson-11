@@ -8,12 +8,12 @@ namespace lesson_11.Business
 {
     public class Company
     {
-        public string CompanyName { get; }
+        public string Name { get; }
         public Country Country { get; }
 
-        public Company(string companyName, Country country)
+        public Company(string name, Country country)
         {
-            CompanyName = companyName;
+            Name = name;
             Country = country;
         }
     }
