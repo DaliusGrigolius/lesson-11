@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace lesson_11.Business
 {
     public class AirCraft
