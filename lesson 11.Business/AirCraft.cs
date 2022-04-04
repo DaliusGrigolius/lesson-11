@@ -5,8 +5,8 @@ namespace lesson_11.Business
     public class AirCraft
     {
         public int AirCraftTailNumber { get; }
-        Model AirCraftModel { get; }
-        Company AirCraftOwnerCompany { get; }
+        public Model AirCraftModel { get; }
+        public Company AirCraftOwnerCompany { get; }
 
         public AirCraft(int airCraftTailNumber, Model airCraftModel, Company airCraftownerCompany)
         {
