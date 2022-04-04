@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lesson_11.DataAccess;
+using System;
 
 namespace lesson_11
 {
@@ -7,6 +8,8 @@ namespace lesson_11
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            AircraftModelRepository aircraftModelRepository = new AircraftModelRepository();
+            Console.WriteLine(aircraftModelRepository.Retrieve(1).Number);
         }
     }
 }

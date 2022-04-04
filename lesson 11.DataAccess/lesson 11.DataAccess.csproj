@@ -1,14 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>lesson_11</RootNamespace>
+    <RootNamespace>lesson_11.DataAccess</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\lesson 11.Business\lesson 11.Business.csproj" />
-    <ProjectReference Include="..\lesson 11.DataAccess\lesson 11.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

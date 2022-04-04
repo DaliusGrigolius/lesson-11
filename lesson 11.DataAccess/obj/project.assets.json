@@ -11,19 +11,6 @@
         "runtime": {
           "bin/placeholder/lesson 11.Business.dll": {}
         }
-      },
-      "lesson 11.DataAccess/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "lesson 11.Business": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/lesson 11.DataAccess.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/lesson 11.DataAccess.dll": {}
-        }
       }
     }
   },
@@ -32,17 +19,11 @@
       "type": "project",
       "path": "../lesson 11.Business/lesson 11.Business.csproj",
       "msbuildProject": "../lesson 11.Business/lesson 11.Business.csproj"
-    },
-    "lesson 11.DataAccess/1.0.0": {
-      "type": "project",
-      "path": "../lesson 11.DataAccess/lesson 11.DataAccess.csproj",
-      "msbuildProject": "../lesson 11.DataAccess/lesson 11.DataAccess.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "lesson 11.Business >= 1.0.0",
-      "lesson 11.DataAccess >= 1.0.0"
+      "lesson 11.Business >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -51,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11\\lesson 11.csproj",
-      "projectName": "lesson 11",
-      "projectPath": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11\\lesson 11.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11.DataAccess\\lesson 11.DataAccess.csproj",
+      "projectName": "lesson 11.DataAccess",
+      "projectPath": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11.DataAccess\\lesson 11.DataAccess.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -74,9 +55,6 @@
           "projectReferences": {
             "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11.Business\\lesson 11.Business.csproj": {
               "projectPath": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11.Business\\lesson 11.Business.csproj"
-            },
-            "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11.DataAccess\\lesson 11.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\User\\Desktop\\repos\\lesson 11\\lesson 11.DataAccess\\lesson 11.DataAccess.csproj"
             }
           }
         }

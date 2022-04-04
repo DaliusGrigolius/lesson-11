@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "lesson 11.Business/1.0.0": {
+        "runtime": {
+          "lesson 11.Business.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "lesson 11.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
