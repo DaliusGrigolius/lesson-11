@@ -10,14 +10,14 @@ namespace lesson_11
         {           
             AircraftRepository aircraftRepository = new AircraftRepository();
             CountryRepository countryRepository = new CountryRepository();
-            ReportItem ataskaita = new ReportItem();           
+            ReportItem reportItem = new ReportItem();           
 
             countryRepository.RetrieveEuropeanUnionCountries();
             countryRepository.PrintFilteredEuCountries();
             aircraftRepository.RetrieveAircraftsFromEuCountries();
             aircraftRepository.PrintEuAircraftsIds();
 
-            ataskaita.RetrieveReport();
+            reportItem.GenerateReportAboutEuAircrafts();
 
             Console.ReadLine();
         }

@@ -7,13 +7,15 @@ namespace lesson_11
     public class ReportItem
     {
         public AircraftRepository aircraftRepository { get; }
+        //public List<ReportItem> reportItems { get; }
 
         public ReportItem()
         {
             aircraftRepository = new AircraftRepository();
+            //reportItems = new List<ReportItem>();
         }
 
-        public void RetrieveReport()
+        public void GenerateReportAboutEuAircrafts()
         {
             List<int> euAircraftsIdsList = aircraftRepository.RetrieveAircraftsFromEuCountries();
 
@@ -29,7 +31,7 @@ namespace lesson_11
                 Console.WriteLine($"Owner Company Name: {aircraftRepository.Retrieve(euAircraftsIdsList[i] - 1).OwnerCompany.Name}");
                 Console.WriteLine($"Company Country Code: {aircraftRepository.Retrieve(euAircraftsIdsList[i] - 1).OwnerCompany.Country.Code}");
                 Console.WriteLine($"Company Country Name: {aircraftRepository.Retrieve(euAircraftsIdsList[i] - 1).OwnerCompany.Country.Name}");
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("------------------------------------");
                 Console.ResetColor();
             }
