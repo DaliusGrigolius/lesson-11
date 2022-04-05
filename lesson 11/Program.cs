@@ -1,6 +1,4 @@
-﻿using lesson_11.DataAccess;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace lesson_11
 {
@@ -8,17 +6,13 @@ namespace lesson_11
     {
         static void Main(string[] args)
         {           
-            AircraftRepository aircraftRepository = new AircraftRepository();
-            CountryRepository countryRepository = new CountryRepository();
-            ReportItem reportItem = new ReportItem();           
+            DataPrinter dataPrinter = new DataPrinter();
 
-            countryRepository.RetrieveEuropeanUnionCountries();
-            countryRepository.PrintFilteredEuCountries();
-            aircraftRepository.RetrieveAircraftsFromEuCountries();
-            aircraftRepository.PrintEuAircraftsIds();
-
-            reportItem.GenerateReportAboutEuAircrafts();
-
+            dataPrinter.PrintFilteredEuCountries();
+            dataPrinter.PrintEuAircraftsIds();
+            dataPrinter.PrintReportAboutEuAircrafts();
+            dataPrinter.PrintAircraftsData();
+            
             Console.ReadLine();
         }
     }

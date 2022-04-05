@@ -1,5 +1,4 @@
 ﻿using lesson_11.Business;
-using System;
 using System.Collections.Generic;
 
 namespace lesson_11.DataAccess
@@ -7,12 +6,12 @@ namespace lesson_11.DataAccess
     public class AircraftRepository
     {
         private List<AirCraft> airCrafts { get; }
-        public List<int> filteredEsCountriesAircraftsIds;
+        public List<int> filteredEuCountriesAircraftsIds;
 
         public AircraftRepository()
         {
             airCrafts = new List<AirCraft>();
-            filteredEsCountriesAircraftsIds = new List<int>();
+            filteredEuCountriesAircraftsIds = new List<int>();
 
             AircraftModel aircraftModel1 = new AircraftModel("T1-5505", "Very fast aircraft");
             AircraftModel aircraftModel2 = new AircraftModel("T2-6606", "Very slow aircraft");
@@ -44,34 +43,19 @@ namespace lesson_11.DataAccess
         public List<int> RetrieveAircraftsFromEuCountries()
         {
             CountryRepository countryRepository = new CountryRepository();
-            List<Country> esCountriesList = countryRepository.euCountries;
+            List<string> euCountriesList = countryRepository.RetrieveEuropeanUnionCountries();
 
-            for (int i = 0; i < esCountriesList.Count; i++)
+            for (int i = 0; i < euCountriesList.Count; i++)
             {
                 for (int j = 0; j < airCrafts.Count; j++)
                 {
-                    if (esCountriesList[i].Code == airCrafts[j].OwnerCompany.Country.Code)
+                    if (euCountriesList[i] == airCrafts[j].OwnerCompany.Country.Name)
                     {
-                        filteredEsCountriesAircraftsIds.Add(airCrafts[j].TailNumber);
+                        filteredEuCountriesAircraftsIds.Add(airCrafts[j].TailNumber);
                     }
                 }
             }
-            return filteredEsCountriesAircraftsIds;
-        }
-
-        public void PrintEuAircraftsIds()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("EU Aircrafts ID's list:");
-            Console.WriteLine("------------------------------------");
-            Console.ResetColor();
-            for (int i = 0; i < filteredEsCountriesAircraftsIds.Count; i++)
-            {
-                Console.WriteLine($"- {filteredEsCountriesAircraftsIds[i]}");
-            }
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("------------------------------------");
-            Console.ResetColor();
+            return filteredEuCountriesAircraftsIds;
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using lesson_11.Business;
-using System;
 using System.Collections.Generic;
 
 namespace lesson_11.DataAccess
@@ -52,21 +51,6 @@ namespace lesson_11.DataAccess
                 }
             }
             return euCountriesFiltered;
-        }
-
-        public void PrintFilteredEuCountries()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("EU Countries list:");
-            Console.WriteLine("------------------------------------");
-            Console.ResetColor();
-            for (int i = 0; i < euCountriesFiltered.Count; i++)
-            {
-                Console.WriteLine($"- {euCountriesFiltered[i]}");
-            }
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("------------------------------------");
-            Console.ResetColor();
-        }
+        }        
     }
 }
