@@ -1,23 +1,26 @@
 ﻿using lesson_11.Business;
+using System;
 using System.Collections.Generic;
 
 namespace lesson_11.DataAccess
 {
     public class AircraftRepository
     {
-        private List<AirCraft> airCrafts { get; }       
+        private List<AirCraft> airCrafts { get; }
+        public List<int> filteredEsCountriesAircraftsIds;
 
         public AircraftRepository()
         {
             airCrafts = new List<AirCraft>();
+            filteredEsCountriesAircraftsIds = new List<int>();
 
             AircraftModel aircraftModel1 = new AircraftModel("T1-5505", "Very fast aircraft");
             AircraftModel aircraftModel2 = new AircraftModel("T2-6606", "Very slow aircraft");
             AircraftModel aircraftModel3 = new AircraftModel("T3-7707", "Very special aircraft");
 
-            Country country1 = new Country("LT", "Lietuva");
-            Country country2 = new Country("EN", "Anglija");
-            Country country3 = new Country("PL", "Lenkija");
+            Country country1 = new Country("LT", "Lithuania");
+            Country country2 = new Country("GB", "Great Britain");
+            Country country3 = new Country("PL", "Poland");
 
             Company company1 = new Company("Profitable", country1);
             Company company2 = new Company("Not Profitable", country2);
@@ -38,12 +41,10 @@ namespace lesson_11.DataAccess
             return airCrafts[number];
         }
 
-        public List<int> RetrieveAircraftsFromEsCountries()
+        public List<int> RetrieveAircraftsFromEuCountries()
         {
             CountryRepository countryRepository = new CountryRepository();
-            List<Country> esCountriesList = countryRepository.esCountries;
-
-            List<int> filteredEsCountriesAircraftsIds = new List<int>();
+            List<Country> esCountriesList = countryRepository.euCountries;
 
             for (int i = 0; i < esCountriesList.Count; i++)
             {
@@ -56,6 +57,21 @@ namespace lesson_11.DataAccess
                 }
             }
             return filteredEsCountriesAircraftsIds;
+        }
+
+        public void PrintEuAircraftsIds()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("EU Aircrafts ID's list:");
+            Console.WriteLine("------------------------------------");
+            Console.ResetColor();
+            for (int i = 0; i < filteredEsCountriesAircraftsIds.Count; i++)
+            {
+                Console.WriteLine($"- {filteredEsCountriesAircraftsIds[i]}");
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("------------------------------------");
+            Console.ResetColor();
         }
     }
 }

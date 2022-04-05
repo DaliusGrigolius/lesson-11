@@ -1,4 +1,5 @@
 ﻿using lesson_11.Business;
+using System;
 using System.Collections.Generic;
 
 namespace lesson_11.DataAccess
@@ -6,25 +7,26 @@ namespace lesson_11.DataAccess
     public class CountryRepository
     {
         private List<Country> countries { get; }
-        public List<Country> esCountries { get; }
+        public List<Country> euCountries { get; }
+        public List<string> euCountriesFiltered { get; }
 
         public CountryRepository()
         {
             countries = new List<Country>();
-            esCountries = new List<Country>();
+            euCountries = new List<Country>();
+            euCountriesFiltered = new List<string>();
 
-            countries.Add(new Country("LT", "Lietuva"));
-            countries.Add(new Country("EN", "Anglija"));
-            countries.Add(new Country("PL", "Lenkija"));
+            countries.Add(new Country("LT", "Lithuania"));
+            countries.Add(new Country("GB", "Great Britain"));
+            countries.Add(new Country("PL", "Poland"));
 
-            esCountries.Add(new Country("BG", "Belgija"));
-            esCountries.Add(new Country("LT", "Lietuva"));
-            esCountries.Add(new Country("IT", "Italija"));
-            esCountries.Add(new Country("LV", "Latvija"));
-            esCountries.Add(new Country("ES", "Estija"));
-            esCountries.Add(new Country("PL", "Lenkija"));
-            esCountries.Add(new Country("FN", "Suomija"));
-
+            euCountries.Add(new Country("BG", "Belgium"));
+            euCountries.Add(new Country("LT", "Lithuania"));
+            euCountries.Add(new Country("IT", "Italy"));
+            euCountries.Add(new Country("LV", "Latvia"));
+            euCountries.Add(new Country("ES", "Estonia"));
+            euCountries.Add(new Country("PL", "Poland"));
+            euCountries.Add(new Country("FN", "Finland"));
         }
 
         public List<Country> Retrieve()
@@ -39,19 +41,32 @@ namespace lesson_11.DataAccess
 
         public List<string> RetrieveEuropeanUnionCountries()
         {
-            List<string> esCountriesFiltered = new List<string>(); 
-
-            for (int i = 0; i < esCountries.Count; i++)
+            for (int i = 0; i < euCountries.Count; i++)
             {
                 for (int j = 0; j < countries.Count; j++)
                 {
-                    if(esCountries[i].Name == countries[j].Name)
+                    if(euCountries[i].Name == countries[j].Name)
                     {
-                        esCountriesFiltered.Add(countries[j].Name);
+                        euCountriesFiltered.Add(countries[j].Name);
                     }
                 }
             }
-            return esCountriesFiltered;
+            return euCountriesFiltered;
+        }
+
+        public void PrintFilteredEuCountries()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("EU Countries list:");
+            Console.WriteLine("------------------------------------");
+            Console.ResetColor();
+            for (int i = 0; i < euCountriesFiltered.Count; i++)
+            {
+                Console.WriteLine($"- {euCountriesFiltered[i]}");
+            }
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("------------------------------------");
+            Console.ResetColor();
         }
     }
 }

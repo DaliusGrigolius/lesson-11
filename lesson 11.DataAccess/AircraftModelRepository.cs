@@ -12,9 +12,9 @@ namespace lesson_11.DataAccess
         {
             aircraftModels = new List<AircraftModel>();
 
-            aircraftModels.Add(new AircraftModel("T1-5505", "very fast aircraft"));
-            aircraftModels.Add(new AircraftModel("T2-6606", "very slow aircraft"));
-            aircraftModels.Add(new AircraftModel("T3-7707", "very special aircraft"));
+            aircraftModels.Add(new AircraftModel("T1-5505", "Very fast aircraft"));
+            aircraftModels.Add(new AircraftModel("T2-6606", "Very slow aircraft"));
+            aircraftModels.Add(new AircraftModel("T3-7707", "Very special aircraft"));
         }
 
         public List<AircraftModel> Retrieve()
