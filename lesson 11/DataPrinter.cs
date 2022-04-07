@@ -30,9 +30,7 @@ namespace lesson_11
             {
                 Console.WriteLine($"- {listas[i]}");
             }
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------");
-            Console.ResetColor();
         }
 
         public void PrintFilteredNotEuCountries()
@@ -47,9 +45,7 @@ namespace lesson_11
             {
                 Console.WriteLine($"- {listas[i]}");
             }
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------");
-            Console.ResetColor();
         }
 
         public void PrintEuAircraftsIds()
@@ -64,9 +60,7 @@ namespace lesson_11
             {
                 Console.WriteLine($"- {filteredEuAircraftsList[i].TailNumber}");
             }
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------");
-            Console.ResetColor();
         }
 
         public void PrintNotEuAircraftsIds()
@@ -81,9 +75,7 @@ namespace lesson_11
             {
                 Console.WriteLine($"- {filteredNotEuAircraftsList[i].TailNumber}");
             }
-            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------");
-            Console.ResetColor();
         }
 
         public void PrintReportAboutEuAircrafts()
@@ -95,18 +87,7 @@ namespace lesson_11
             
             List<AirCraft> euAircraftsList = aircraftRepository.FilterEuAircrafts();
 
-            for (int i = 0; i < euAircraftsList.Count; i++)
-            {
-                Console.WriteLine($"- TailNumber: {euAircraftsList[i].TailNumber}");
-                Console.WriteLine($"- Model Number: {euAircraftsList[i].Model.Number}");
-                Console.WriteLine($"- Model Description: {euAircraftsList[i].Model.Description}");
-                Console.WriteLine($"- Owner Company Name: {euAircraftsList[i].OwnerCompany.Name}");
-                Console.WriteLine($"- Company Country Code: {euAircraftsList[i].OwnerCompany.Country.Code}");
-                Console.WriteLine($"- Company Country Name: {euAircraftsList[i].OwnerCompany.Country.Name}");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("------------------------------------");
-                Console.ResetColor();
-            }
+            euAircraftsList.ForEach(i => Console.Write($"Aircraft TailNumber: {i.TailNumber}\r\nAircraft Model: {i.Model.Number}\r\nAircraft Company: {i.OwnerCompany.Name}\r\nCountry: {i.OwnerCompany.Country.Name}\r\n------------------------------------\r\n"));
         }
 
         public void PrintReportAboutNotEuAircrafts()
@@ -118,18 +99,7 @@ namespace lesson_11
 
             List<AirCraft> notEuAircraftsList = aircraftRepository.FilterNotEuAircrafts();
 
-            for (int i = 0; i < notEuAircraftsList.Count; i++)
-            {
-                Console.WriteLine($"- TailNumber: {notEuAircraftsList[i].TailNumber}");
-                Console.WriteLine($"- Model Number: {notEuAircraftsList[i].Model.Number}");
-                Console.WriteLine($"- Model Description: {notEuAircraftsList[i].Model.Description}");
-                Console.WriteLine($"- Owner Company Name: {notEuAircraftsList[i].OwnerCompany.Name}");
-                Console.WriteLine($"- Company Country Code: {notEuAircraftsList[i].OwnerCompany.Country.Code}");
-                Console.WriteLine($"- Company Country Name: {notEuAircraftsList[i].OwnerCompany.Country.Name}");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("------------------------------------");
-                Console.ResetColor();
-            }
+            notEuAircraftsList.ForEach(i => Console.Write($"Aircraft TailNumber: {i.TailNumber}\r\nAircraft Model: {i.Model.Number}\r\nAircraft Company: {i.OwnerCompany.Name}\r\nCountry: {i.OwnerCompany.Country.Name}\r\n------------------------------------\r\n"));
         }
 
         public void PrintAllAircraftsData()
