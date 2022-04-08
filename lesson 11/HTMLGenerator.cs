@@ -19,30 +19,51 @@ namespace lesson_11
         public void GenerateHTMLWithColor()
         {
             List<AirCraft> aircraftsList = aircraftRepository.Retrieve();
-            List<string> aircraftsListInStringFormat = aircraftsData.RetrieveAircraftsDataInStringFormat(aircraftsList);
+            //List<string> aircraftsListInStringFormat = aircraftsData.RetrieveAircraftsDataInStringFormat(aircraftsList);
 
             var templatePath = @$"C:\Users\User\Desktop\repos\lesson 11\template.html";
             var reportPath2 = @$"C:\Users\User\Desktop\repos\lesson 11\report.html";
 
-            var text = File.ReadAllText(templatePath);
+            var divOpenWithColorEu = "<div style =\"background: lightblue; padding: 15px; margin: 0 auto; border-radius: 10px; text-align: center;\">";
+            var divOpenWithColorNotEu = "<div style =\"background: lightcoral; padding: 15px; margin: 0 auto; border-radius: 10px; text-align: center;\">";
 
-            text.Replace("{Aircraft}", $"{aircraftsListInStringFormat[0]}");
-            text.Replace("{Model}", $"{aircraftsListInStringFormat[1]}");
-            text.Replace("{ModelDescription}", $"{aircraftsListInStringFormat[2]}");
-            text.Replace("{OwnerCompanyName}", $"{aircraftsListInStringFormat[3]}");
-            text.Replace("{CountryCode}", $"{aircraftsListInStringFormat[4]}");
-            text.Replace("{CountryName}", $"{aircraftsListInStringFormat[5]}");
+            for (int i = 0; i < aircraftsList.Count; i++)
+            {
+                if (aircraftsList[i].OwnerCompany.Country.RegistrationCountry)
+                {
+                    var text = File.ReadAllText(templatePath);
+                    text = text.Replace("{divBgColorOpen}", $"{divOpenWithColorEu}");
+                    text = text.Replace("{Aircraft}", $"TailNumber: {aircraftsList[i].TailNumber}");
+                    text = text.Replace("{Model}", $"Model Number: {aircraftsList[i].Model.Number}");
+                    text = text.Replace("{ModelDescription}", $"Model Description: {aircraftsList[i].Model.Description}");
+                    text = text.Replace("{OwnerCompanyName}", $"Owner Company Name: {aircraftsList[i].OwnerCompany.Name}");
+                    text = text.Replace("{CountryCode}", $"Country Code: {aircraftsList[i].OwnerCompany.Country.Code}");
+                    text = text.Replace("{CountryName}", $"Country Name: {aircraftsList[i].OwnerCompany.Country.Name}");
+                    text = text.Replace("{divBgColorClose}", "</div>");
 
-            File.WriteAllLines(reportPath2, aircraftsListInStringFormat);
+                    File.AppendAllText(reportPath2, text);
+                }
+                else
+                {
+                    var text = File.ReadAllText(templatePath);
+                    text = text.Replace("{divBgColorOpen}", $"{divOpenWithColorNotEu}");
+                    text = text.Replace("{Aircraft}", $"TailNumber: {aircraftsList[i].TailNumber}");
+                    text = text.Replace("{Model}", $"Model Number: {aircraftsList[i].Model.Number}");
+                    text = text.Replace("{ModelDescription}", $"Model Description: {aircraftsList[i].Model.Description}");
+                    text = text.Replace("{OwnerCompanyName}", $"Owner Company Name: {aircraftsList[i].OwnerCompany.Name}");
+                    text = text.Replace("{CountryCode}", $"Country Code: {aircraftsList[i].OwnerCompany.Country.Code}");
+                    text = text.Replace("{CountryName}", $"Country Name: {aircraftsList[i].OwnerCompany.Country.Name}");
+                    text = text.Replace("{divBgColorClose}", "</div>");
+
+                    File.AppendAllText(reportPath2, text);
+                }
+            }
         }
     }
 }
-// ---cia template'as taip atrodo---
-//<br><div>
-//{Aircraft}<br>
-//{Model}<br>
-//{ModelDescription}<br>
-//{OwnerCompanyName}<br>
-//{CountryCode}<br>
+//{Aircraft}
+//{Model}
+//{ModelDescription}
+//{OwnerCompanyName}
+//{CountryCode}
 //{CountryName}
-//</div><br><br>
