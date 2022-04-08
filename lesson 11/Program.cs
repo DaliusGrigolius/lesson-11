@@ -9,13 +9,13 @@ namespace lesson_11
             DataPrinter dataPrinter = new DataPrinter();
             HTMLGenerator htmlGenerator = new HTMLGenerator();
 
-            dataPrinter.PrintFilteredEuCountries();
-            //dataPrinter.PrintFilteredNotEuCountries();
-            dataPrinter.PrintEuAircraftsIds();
-            //dataPrinter.PrintNotEuAircraftsIds();
-            dataPrinter.PrintReportAboutEuAircrafts();
-            //dataPrinter.PrintReportAboutNotEuAircrafts();
-            dataPrinter.PrintAllAircraftsData();
+            //dataPrinter.PrintFilteredEuCountries();
+            ////dataPrinter.PrintFilteredNotEuCountries();
+            //dataPrinter.PrintEuAircraftsIds();
+            ////dataPrinter.PrintNotEuAircraftsIds();
+            //dataPrinter.PrintReportAboutEuAircrafts();
+            ////dataPrinter.PrintReportAboutNotEuAircrafts();
+            //dataPrinter.PrintAllAircraftsData();
             htmlGenerator.GenerateHTMLWithColor();
 
             Console.ReadLine();

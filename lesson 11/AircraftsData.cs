@@ -16,8 +16,7 @@ namespace lesson_11
                 data.Add($"Model Description: {airCraftsList[i].Model.Description}");
                 data.Add($"Owner Company Name: {airCraftsList[i].OwnerCompany.Name}");
                 data.Add($"      Country Code: {airCraftsList[i].OwnerCompany.Country.Code}");
-                data.Add($"      Country Name: {airCraftsList[i].OwnerCompany.Country.Name}");
-                data.Add("------------------------------------");
+                data.Add($"      Country Name: {airCraftsList[i].OwnerCompany.Country.Name}\r\n\r\n");
             }
             return data;
         }
