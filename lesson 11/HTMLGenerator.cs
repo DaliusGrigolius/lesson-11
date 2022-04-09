@@ -22,16 +22,17 @@ namespace lesson_11
             //List<string> aircraftsListInStringFormat = aircraftsData.RetrieveAircraftsDataInStringFormat(aircraftsList);
 
             var templatePath = @$"C:\Users\User\Desktop\repos\lesson 11\template.html";
-            var reportPath2 = @$"C:\Users\User\Desktop\repos\lesson 11\report.html";
+            var reportPath = @$"C:\Users\User\Desktop\repos\lesson 11\report.html";
 
             var divOpenWithColorEu = "<div style =\"background: lightblue; padding: 15px; margin: 0 auto; border-radius: 10px; text-align: center;\">";
             var divOpenWithColorNotEu = "<div style =\"background: lightcoral; padding: 15px; margin: 0 auto; border-radius: 10px; text-align: center;\">";
 
             for (int i = 0; i < aircraftsList.Count; i++)
             {
+                var text = File.ReadAllText(templatePath);
+
                 if (aircraftsList[i].OwnerCompany.Country.RegistrationCountry)
                 {
-                    var text = File.ReadAllText(templatePath);
                     text = text.Replace("{divBgColorOpen}", $"{divOpenWithColorEu}");
                     text = text.Replace("{Aircraft}", $"TailNumber: {aircraftsList[i].TailNumber}");
                     text = text.Replace("{Model}", $"Model Number: {aircraftsList[i].Model.Number}");
@@ -41,11 +42,10 @@ namespace lesson_11
                     text = text.Replace("{CountryName}", $"Country Name: {aircraftsList[i].OwnerCompany.Country.Name}");
                     text = text.Replace("{divBgColorClose}", "</div>");
 
-                    File.AppendAllText(reportPath2, text);
+                    File.AppendAllText(reportPath, text);
                 }
                 else
                 {
-                    var text = File.ReadAllText(templatePath);
                     text = text.Replace("{divBgColorOpen}", $"{divOpenWithColorNotEu}");
                     text = text.Replace("{Aircraft}", $"TailNumber: {aircraftsList[i].TailNumber}");
                     text = text.Replace("{Model}", $"Model Number: {aircraftsList[i].Model.Number}");
@@ -55,15 +55,9 @@ namespace lesson_11
                     text = text.Replace("{CountryName}", $"Country Name: {aircraftsList[i].OwnerCompany.Country.Name}");
                     text = text.Replace("{divBgColorClose}", "</div>");
 
-                    File.AppendAllText(reportPath2, text);
+                    File.AppendAllText(reportPath, text);
                 }
             }
         }
     }
 }
-//{Aircraft}
-//{Model}
-//{ModelDescription}
-//{OwnerCompanyName}
-//{CountryCode}
-//{CountryName}

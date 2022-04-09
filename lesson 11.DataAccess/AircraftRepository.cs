@@ -46,34 +46,22 @@ namespace lesson_11.DataAccess
 
         public List<AirCraft> FilterEuAircrafts()
         {
-            if (filteredEuAircrafts.Count > 0)
-            {
-                filteredEuAircrafts.Clear();
-            }
+            if (filteredEuAircrafts.Count > 0) filteredEuAircrafts.Clear();
 
             for (int i = 0; i < airCrafts.Count; i++)
             {
-                if (airCrafts[i].OwnerCompany.Country.RegistrationCountry)
-                {
-                    filteredEuAircrafts.Add(airCrafts[i]);
-                }
+                if (airCrafts[i].OwnerCompany.Country.RegistrationCountry) filteredEuAircrafts.Add(airCrafts[i]);
             }
             return filteredEuAircrafts;
         }
 
         public List<AirCraft> FilterNotEuAircrafts()
         {
-            if (filteredNotEuAircrafts.Count > 0)
-            {
-                filteredNotEuAircrafts.Clear();
-            }
+            if (filteredNotEuAircrafts.Count > 0) filteredNotEuAircrafts.Clear();
 
             for (int i = 0; i < airCrafts.Count; i++)
             {
-                if (!airCrafts[i].OwnerCompany.Country.RegistrationCountry)
-                {
-                    filteredNotEuAircrafts.Add(airCrafts[i]);
-                }
+                if (!airCrafts[i].OwnerCompany.Country.RegistrationCountry) filteredNotEuAircrafts.Add(airCrafts[i]);
             }
             return filteredNotEuAircrafts;
         }

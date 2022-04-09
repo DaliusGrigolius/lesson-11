@@ -46,10 +46,7 @@ namespace lesson_11.DataAccess
 
             for (int i = 0; i < countries.Count; i++)
             {
-                if (countries[i].RegistrationCountry)
-                {
-                    euCountriesFiltered.Add(countries[i].Name);
-                }
+                if (countries[i].RegistrationCountry) euCountriesFiltered.Add(countries[i].Name);
             }     
             return euCountriesFiltered;
         }
@@ -60,10 +57,7 @@ namespace lesson_11.DataAccess
 
             for (int i = 0; i < countries.Count; i++)
             {
-                if (!countries[i].RegistrationCountry)
-                {
-                    notEuCountriesFiltered.Add(countries[i].Name);
-                }
+                if (!countries[i].RegistrationCountry) notEuCountriesFiltered.Add(countries[i].Name);
             }
             return notEuCountriesFiltered;
         }
