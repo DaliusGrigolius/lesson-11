@@ -16,7 +16,7 @@ namespace lesson_11
             dataPrinter.PrintReportAboutEuAircrafts();
             //dataPrinter.PrintReportAboutNotEuAircrafts();
             dataPrinter.PrintAllAircraftsData();
-            htmlGenerator.GenerateHTMLWithColor();
+            //htmlGenerator.GenerateHTMLWithColor();
 
             Console.ReadLine();
         }
